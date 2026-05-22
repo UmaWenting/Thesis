@@ -136,8 +136,6 @@ for j in range(n_test):
 
 # Posterior  mean + variance------------------------------------------------------------------------------------------------------------------------------------
 posterior_mean = K_star.T @ alpha
-
-grad_posterior_mean = K_star_grad.T @ alpha
 grad_posterior_mean = np.einsum('ijk,i->jk', K_star_grad, alpha)
 B = np.linalg.solve(A, K_star)
 posterior_variance = ( length **2 - np.sum(K_star * B, axis=0))
@@ -199,11 +197,11 @@ plt.show()
 # Gradient mean + variance ------------------------------------------------------------------------------------------------------------------------------------
 gradient_variance = np.zeros((n_test, 4))
 for d in range(4):
-    Kd = K_star_grad[:, :, d]
-    B = np.linalg.solve(A, Kd)
+    K_variance = K_star_grad[:, :, d]
+    B = np.linalg.solve(A, K_variance)
     gradient_variance[:, d] = (
         length**2 / length**2
-        - np.sum(Kd * B, axis=0))
+        - np.sum(K_variance * B, axis=0))
 
 
 mean_gradient_variance = np.mean(gradient_variance)
