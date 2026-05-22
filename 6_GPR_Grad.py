@@ -88,8 +88,7 @@ X_star = np.column_stack([
     np.zeros(Q1.size)])
 
 
-# Deconfuse the different types of n
-n_train = X.shape[0] # here we rename n to avoid confusion same as n before
+n_train = X.shape[0] # here we rename n to avoid confusion, same as n before
 n_test = Q1.size
 
 
