@@ -51,7 +51,7 @@ length = 1
 
 K = np.zeros((n, n))
 for i in range(n):
-    for j in range(i, n):
+    for j in range(i, n): # We only calculate the top diagonal and then later use symmetry to fill in the rest
         diff = X[i] - X[j]
         k = length**2 * np.exp(-(np.sum(diff**2)) / (2 * length**2))
         K[i, j] = k
