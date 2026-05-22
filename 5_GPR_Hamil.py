@@ -75,8 +75,7 @@ X_star = np.column_stack([
     Q1.ravel(),
     Q2.ravel(),
     np.zeros(Q1.size),
-    np.zeros(Q1.size)
-])
+    np.zeros(Q1.size)])
 
 n_train = X.shape[0] # here we rename n to avoid confusion same as n before
 n_test = Q1.size
@@ -101,8 +100,7 @@ X_star = np.column_stack([
 K_star = np.zeros((n_train, n_test))
 for j in range(n_test):
     diff = X - X_star[j]
-    K_star[:, j] = length**2 * np.exp(
-        -(np.sum(diff**2, axis=1)) / (2 * length**2))
+    K_star[:, j] = length**2 * np.exp  -(np.sum(diff**2, axis=1)) / (2 * length**2))
     
     
     
