@@ -142,17 +142,15 @@ for i in range(3):
         samples[i],
         color="darkblue",
         alpha=1,
-        label="samples" if i == 0 else None
-    )
+        label="samples" if i == 0 else None)
 
 plt.plot(q1_vals, posterior_mean, label="posterior mean", color="magenta") # expected function
 plt.fill_between(
     q1_vals,
     posterior_mean - 2*std,
     posterior_mean + 2*std,
-    alpha=0.2
-    
-    )
+    alpha=0.2)
+
 plt.title("Posterior mean + samples from posterior distribution")
 
 plt.legend()
